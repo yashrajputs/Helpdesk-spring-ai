@@ -2,6 +2,9 @@ package com.substirng.helpdesk.Service;
 
 import org.springframework.stereotype.Service;
 import com.substirng.helpdesk.repository.TicketRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.substirng.helpdesk.entity.Ticket;
 
 import lombok.AllArgsConstructor;
@@ -22,7 +25,9 @@ public class TicketService {
 
 
 //create ticket
+    @Transactional
     public Ticket createTicket(Ticket ticket) {
+        ticket.setId(null);
         return ticketRepository.save(ticket);
     }
 
@@ -39,10 +44,10 @@ public class TicketService {
     }
 
 
-    //get ticket by username
-    public Ticket getTicketByUsername(String username) {
-        return ticketRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("Ticket not found with username: " + username));
+    //get ticket by email
+    public Ticket getTicketByEmail(String email) {
+        return ticketRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Ticket not found with email: " + email));
     }
 
 

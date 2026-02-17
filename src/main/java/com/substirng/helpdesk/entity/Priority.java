@@ -2,6 +2,6 @@ package com.substirng.helpdesk.entity;
 
 public enum Priority {
 
-    LOW, MEDIUM, HIGH
+    LOW, MEDIUM, HIGH, URGENT
 
 }

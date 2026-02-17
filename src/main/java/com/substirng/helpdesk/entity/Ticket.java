@@ -40,8 +40,14 @@ public class Ticket {
     private Priority priority;
 
 
+    private String category;
+
+    @Column(length = 1000)
+    private String description;
+
+
     @Column(unique = true)
-    private String username;
+    private String email;
 
 
     private LocalDateTime createdAt;
